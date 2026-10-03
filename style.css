@@ -87,8 +87,15 @@ nav{
 .nav-toggle{display:none; background:none; border:none; font-size:1.5rem; color:var(--brown); cursor:pointer; margin-left:auto;}
 
 @media (max-width:900px){
+  /* Mobile : en-tête non collant (évite les coupures dans les navigateurs intégrés type WhatsApp/Instagram) */
+  header{
+    position:relative;
+    -webkit-backdrop-filter:none; backdrop-filter:none;
+    background:var(--cream);
+    padding-top:env(safe-area-inset-top);
+  }
   .navlinks{
-    position:fixed; top:66px; left:0; right:0; background:var(--cream);
+    position:absolute; top:100%; left:0; right:0; background:var(--cream);
     flex-direction:column; padding:20px 32px; gap:18px;
     border-bottom:1px solid var(--line);
     transform:translateY(-110%); transition:transform 0.3s ease;
@@ -107,8 +114,11 @@ nav{
   nav{gap:8px; padding:10px 12px;}
   .nav-toggle{font-size:1.3rem;}
 }
-@media (max-width:400px){
+@media (max-width:480px){
   .brand-text span{display:none;}
+  .donate-btn{white-space:nowrap;}
+}
+@media (max-width:400px){
   .donate-btn{padding:7px 10px; font-size:0.68rem;}
   .brand-text strong{font-size:0.76rem;}
 }
